@@ -1,11 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import NextButton from "./NextButton";
+import PreviousButton from "./PreviousButton";
+import TogglePlayerButton from "./TogglePlayerButton";
+import Progress from "./Progress";
 
-export default function PlayerPannel() {
+export default function PlayerPanel() {
   const playlist = useSelector((state) => state.playlist);
   const actualSong = playlist.songs?.find(
     (obj) => obj.id === playlist.currentMuscID
   );
+
+  console.log("bou");
 
   return (
     <div className="fixed w-full bottom-0 rounded border-t-2 border-gray-800 p-6 bg-gradient-to-r from-indigo-100 to-purple-200">
@@ -26,8 +32,11 @@ export default function PlayerPannel() {
         </div>
       </div>
       <div className="flex justify-center items-center mb-5">
-        {/* a suivre */}
+        <PreviousButton />
+        <TogglePlayerButton />
+        <NextButton />
       </div>
+      <Progress />
     </div>
   );
 }
