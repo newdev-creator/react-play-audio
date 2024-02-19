@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getMusicsData } from "../features/playlist";
+import { getMusicsData, changeSong } from "../features/playlist";
 
 export default function Playlist() {
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ export default function Playlist() {
       {playlist?.songs?.length &&
         playlist.songs.map((song) => (
           <li
+            onClick={() => dispatch(changeSong(song.id))}
             key={song.id}
             className="p-2 border-2 font-semibold bg-indigo-100 hover:bg-indigo-200 text-slate-800 mb-3 cursor-pointer"
           >
