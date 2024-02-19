@@ -5,7 +5,6 @@ import formValue from "../../utils/formatValue";
 
 export default function Progress() {
   const progressData = useSelector((state) => state.progress);
-  console.log(progressData.current / progressData.totalDuration);
 
   function handleProgressClick(e) {
     const player = document.getElementById("audio-player");
